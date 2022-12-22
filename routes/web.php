@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Artisan;
-Route::get('/migration', function () {
+Route::get('/migrate', function () {
     Artisan::call('migrate:fresh');
     Artisan::call('db:seed');
 });
 
+Route::get('/cache-clear', function(){
+    Artisan::call('cache:clear');
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
